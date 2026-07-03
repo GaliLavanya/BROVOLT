@@ -68,7 +68,7 @@ const solutionsData: Record<
     title: 'Commercial Charging',
     description: 'Turnkey charging infrastructure tailored for malls, hospitality venues, offices, and retail parking. Attracts premium customers and yields retail stay longevity.',
     icon: TrendingUp,
-    color: 'text-blue-500 bg-blue-500/10 border-blue-500/20',
+    color: 'text-blue-600 bg-blue-600/10 border-blue-600/20',
     specs: [
       { label: 'Charger Config', val: 'Wallbox or dual Pedestal' },
       { label: 'Billing Tools', val: 'Multi-tariff payment gate' },
@@ -253,7 +253,7 @@ export default function SolutionsContent() {
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">Need a Custom Fleet Configuration?</h2>
             <p className="text-muted-foreground mb-8">Speak to our EV infrastructure planning team to design a depot for your business.</p>
-            <Link href="/contact?subject=Enterprise" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-lg shadow-primary/30">
+            <Link href="/contact?subject=Enterprise" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-lg shadow-primary/30">
               Get in Touch
             </Link>
           </div>
@@ -342,7 +342,7 @@ export default function SolutionsContent() {
                 </Link>
                 <button
                   onClick={() => setActiveSpec(null)}
-                  className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-600 transition-colors cursor-pointer text-sm shadow-md"
+                  className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer text-sm shadow-md"
                 >
                   Got It
                 </button>

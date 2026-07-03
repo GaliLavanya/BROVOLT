@@ -40,7 +40,7 @@ export default function SustainabilityContent() {
           <p className="text-lg text-muted-foreground mb-8">See how much CO2 you can save by switching to EV charging with BREVOLT.</p>
           <button
             onClick={() => setIsCalculatorOpen(true)}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-lg hover:shadow-primary/20 cursor-pointer"
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-lg hover:shadow-primary/20 cursor-pointer"
           >
             Calculate Your Carbon Savings
           </button>
@@ -184,7 +184,7 @@ export default function SustainabilityContent() {
                       // Navigate to mobile app to track
                       window.location.href = '/mobile-app'
                     }}
-                    className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-1 cursor-pointer shadow-md"
+                      className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 cursor-pointer shadow-md"
                   >
                     Start Saving Now <ArrowRight size={16} />
                   </button>

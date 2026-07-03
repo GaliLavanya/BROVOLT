@@ -102,7 +102,7 @@ export default function PricingPage() {
                     href={`/contact?plan=${encodeURIComponent(plan.name)}`}
                     className={`px-6 py-3 rounded-lg font-semibold transition-colors w-full text-center block ${
                       plan.highlight
-                        ? 'bg-primary text-primary-foreground hover:bg-blue-600'
+                        ? 'bg-primary text-primary-foreground hover:bg-blue-700'
                         : 'bg-card border-2 border-primary text-primary hover:bg-primary/10'
                     }`}
                   >
@@ -166,7 +166,7 @@ export default function PricingPage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-6">Ready to get started?</h2>
-            <Link href="/contact" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+            <Link href="/contact" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold">
               Contact Our Team
             </Link>
           </div>

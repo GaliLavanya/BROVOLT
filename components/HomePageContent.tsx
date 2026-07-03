@@ -99,7 +99,7 @@ export default function HomePageContent() {
               {
                 title: 'Public EV Charging',
                 desc: 'Highway charging stations and urban fast charging hubs for travelers.',
-                image: '/images/dc-fast-charging.png',
+                image: '/images/charging-station.jpg',
                 link: '/solutions'
               },
               {
@@ -347,7 +347,7 @@ export default function HomePageContent() {
                   </div>
                 ))}
               </div>
-              <Link href="/franchise" className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-lg shadow-primary/20 gap-2">
+              <Link href="/franchise" className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-lg shadow-primary/20 gap-2">
                 Apply Now <ArrowRight size={18} />
               </Link>
             </div>

@@ -78,7 +78,7 @@ function ContactPageInner() {
                 {
                   icon: Mail,
                   title: 'Email',
-                  content: 'hello@brevolt.com',
+                  content: 'hello@brevolt.in',
                   description: 'We reply within 24 hours',
                 },
                 {
@@ -90,8 +90,8 @@ function ContactPageInner() {
                 {
                   icon: MapPin,
                   title: 'Address',
-                  content: '123 Electric Way',
-                  description: 'Tesla City, TC 10001',
+                  content: '3rd Floor, Newmark House',
+                  description: 'Madhapur, Hyderabad, TS 500081',
                 },
               ].map((info, index) => (
                 <div key={index} className="bg-card border border-border rounded-lg p-4 text-center">
@@ -242,7 +242,7 @@ function ContactPageInner() {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-md cursor-pointer"
+                    className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md cursor-pointer"
                   >
                     Send Message
                   </button>
@@ -259,7 +259,7 @@ function ContactPageInner() {
             <p className="text-muted-foreground mb-8">Find quick answers to common questions about BREVOLT services.</p>
             <Link
               href="/faq"
-              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-md text-center"
+              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md text-center"
             >
               View FAQ
             </Link>

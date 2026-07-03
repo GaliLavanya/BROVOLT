@@ -144,7 +144,7 @@ export default function MobileAppPage() {
               <span className="text-2xl font-bold">₹1,450.00</span>
             </div>
             {/* Card interface */}
-            <div className="my-4 bg-gradient-to-r from-primary to-blue-600 rounded-xl p-4 shadow-lg flex flex-col justify-between h-28 border border-white/10">
+            <div className="my-4 bg-gradient-to-r from-primary to-blue-700 rounded-xl p-4 shadow-lg flex flex-col justify-between h-28 border border-white/10">
               <div className="flex justify-between items-start">
                 <span className="text-[9px] text-white/70 tracking-widest font-mono">BREVOLT PASS</span>
                 <span className="font-bold text-xs italic">B</span>
@@ -265,7 +265,7 @@ export default function MobileAppPage() {
                   Real-time occupancy maps, one-tap UPI payments, remote diagnostics, and carbon offset tracking—all directly inside a gorgeous, unified interface.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                  <button className="px-8 py-3.5 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold flex items-center space-x-2 shadow-lg shadow-primary/20 cursor-pointer text-sm">
+                  <button className="px-8 py-3.5 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center space-x-2 shadow-lg shadow-primary/20 cursor-pointer text-sm">
                     <Download size={18} />
                     <span>Get iOS App</span>
                   </button>

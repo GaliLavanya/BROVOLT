@@ -44,7 +44,7 @@ export default function AboutPage() {
                     Deliver reliable, fast, and accessible charging infrastructure through innovation, AI, and customer-first experiences.
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-accent/10 to-blue-600/10 border border-accent/30 rounded-lg p-8 animate-fade-in">
+                <div className="bg-gradient-to-br from-accent/10 to-blue-700/10 border border-accent/30 rounded-lg p-8 animate-fade-in">
                   <h2 className="text-3xl font-bold text-accent mb-4">Our Vision</h2>
                   <p className="text-lg text-foreground leading-relaxed">
                     To become India&apos;s most trusted intelligent EV charging network and accelerate the global transition to sustainable mobility.

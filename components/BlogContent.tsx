@@ -212,7 +212,7 @@ export default function BlogContent() {
               <div className="bg-muted/30 px-8 py-6 border-t border-border flex justify-end">
                 <button
                   onClick={() => setSelectedPost(null)}
-                  className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-600 transition-colors cursor-pointer shadow-md"
+                  className="px-6 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer shadow-md"
                 >
                   Close Article
                 </button>
@@ -247,7 +247,7 @@ export default function BlogContent() {
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold cursor-pointer"
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold cursor-pointer"
               >
                 Subscribe
               </button>

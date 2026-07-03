@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -24,15 +25,19 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-primary-foreground font-bold text-lg">B</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">BREVOLT</span>
+            <Image
+              src="/images/logo.png"
+              alt="BREVOLT Logo"
+              width={140}
+              height={40}
+              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,7 +48,7 @@ export default function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition-colors relative group text-sm font-medium py-1 ${isActive ? 'text-accent font-semibold' : 'text-muted-foreground hover:text-accent'}`}
+                  className={`transition-colors relative group text-sm font-medium py-1 ${isActive ? 'text-accent font-bold' : 'text-slate-700 hover:text-accent'}`}
                 >
                   {item.label}
                 </Link>
@@ -55,7 +60,7 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/contact"
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors text-sm font-semibold"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold"
             >
               Get Started
             </Link>
@@ -64,7 +69,7 @@ export default function Navigation() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-foreground cursor-pointer p-1"
+            className="lg:hidden text-slate-800 cursor-pointer p-1"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -76,7 +81,7 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden pb-4 space-y-1.5 mt-2"
+            className="lg:hidden pb-4 space-y-1.5 mt-2 bg-white border-t border-slate-100"
           >
             {navItems.map((item) => {
               const isActive = pathname === item.href
@@ -84,7 +89,7 @@ export default function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block px-4 py-2 rounded-lg transition-colors text-sm ${isActive ? 'text-accent font-semibold bg-accent/10' : 'text-muted-foreground hover:text-accent hover:bg-card'}`}
+                  className={`block px-4 py-2 rounded-lg transition-colors text-sm ${isActive ? 'text-accent font-semibold bg-accent/10' : 'text-slate-700 hover:text-accent hover:bg-slate-50'}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -93,7 +98,7 @@ export default function Navigation() {
             })}
             <Link
               href="/contact"
-              className="block w-full px-4 py-2.5 bg-primary text-primary-foreground rounded-lg text-center hover:bg-blue-600 transition-colors mt-4 text-sm font-semibold"
+              className="block w-full px-4 py-2.5 bg-primary text-primary-foreground rounded-lg text-center hover:bg-blue-700 transition-colors mt-4 text-sm font-semibold"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started

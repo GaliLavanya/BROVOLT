@@ -9,13 +9,13 @@ import { ChevronLeft, ChevronRight, X, Leaf, Zap, Globe, Sparkles } from 'lucide
 const slides = [
   {
     id: 1,
-    image: '/images/hero-1.png',
+    image: '/images/charging-station.jpg',
     title: 'Powering the Future of Electric Mobility',
     subtitle: 'Reliable, Fast & Smart EV Charging Infrastructure. Charge Anywhere. Drive Everywhere.',
   },
   {
     id: 2,
-    image: '/images/hero-2.png',
+    image: '/images/charging-station-2.png',
     title: 'Ultra-Fast Charging Depot',
     subtitle: 'High-speed DC chargers engineered to get you charged up and moving in minutes.',
   },
@@ -95,7 +95,7 @@ export default function HeroCarousel() {
             {slides[current].subtitle}
           </p>
           <div className="flex items-center justify-center space-x-4">
-            <Link href="/charging-network" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-600 transition-colors font-semibold shadow-md">
+            <Link href="/charging-network" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md">
               Find Charger
             </Link>
             <Link href="/franchise" className="px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white/15 transition-colors font-semibold shadow-md">
@@ -214,7 +214,7 @@ export default function HeroCarousel() {
                 </Link>
                 <button
                   onClick={() => setIsLearnMoreOpen(false)}
-                  className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-600 transition-colors cursor-pointer text-sm shadow-md"
+                  className="px-5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer text-sm shadow-md"
                 >
                   Got It
                 </button>
