@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
             <section className="bg-card border border-border rounded-xl p-6 md:p-8">
               <h2 className="text-xl font-bold text-foreground mb-4">1. Introduction</h2>
               <p>
-                Welcome to Reach All ("we," "our," or "us"), operators of the BREVOLT EV charging platform. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy or our practices with regard to your personal information, please contact us at <a href="mailto:hello@brevolt.in" className="text-accent hover:underline font-semibold">hello@brevolt.in</a>.
+                Welcome to Reach All ("we," "our," or "us"), operators of the BREVOLT EV charging platform. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy or our practices with regard to your personal information, please contact us at <a href="mailto:hello@brevolt.in" className="text-accent hover:underline font-semibold">hello@brevolt.in</a> or <a href="mailto:info@brevolt.in" className="text-accent hover:underline font-semibold">info@brevolt.in</a>.
               </p>
             </section>
 
@@ -71,7 +71,8 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="mt-4 font-semibold text-foreground">
                 Reach All Private Limited<br />
-                Email: hello@brevolt.in<br />
+                Email: hello@brevolt.in / info@brevolt.in<br />
+                Phone: +91 93933 13414<br />
                 Address: 3rd Floor, Newmark House, Unit No: 303 B, Plot No: 56, Patrika Nagar, Madhapur, Serilingampalle (M), Hyderabad, Telangana 500081
               </p>
             </section>

@@ -2,7 +2,8 @@
 
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, CheckCircle2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -15,6 +16,7 @@ function ContactPageInner() {
     company: '',
     message: '',
   })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const searchParams = useSearchParams()
 
@@ -46,12 +48,54 @@ function ContactPageInner() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', company: '', message: '' })
-    alert('Thank you! We have received your inquiry and will get back to you shortly.')
+    setIsSubmitting(true)
+
+    const sheetDbUrl = process.env.NEXT_PUBLIC_SHEETDB_API_URL || 'https://sheetdb.io/api/v1/YOUR_SHEETDB_API_ID'
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'contact',
+          data: {
+            form_type: 'contact',
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            location: '',
+            investment: '',
+            propertyType: '',
+            message: formData.message,
+            submitted_at: new Date().toISOString()
+          }
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form to API')
+      }
+
+      setFormData({ name: '', email: '', phone: '', company: '', message: '' })
+      setIsSubmitted(true)
+      
+      // Auto-reset the success card back to the form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Something went wrong. Please try again or contact us directly at hello@brevolt.in.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -78,13 +122,13 @@ function ContactPageInner() {
                 {
                   icon: Mail,
                   title: 'Email',
-                  content: 'hello@brevolt.in',
+                  content: 'hello@brevolt.in / info@brevolt.in',
                   description: 'We reply within 24 hours',
                 },
                 {
                   icon: Phone,
                   title: 'Phone',
-                  content: '+1 (234) 567-890',
+                  content: '+91 93933 13414',
                   description: 'Available 24/7',
                 },
                 {
@@ -159,94 +203,117 @@ function ContactPageInner() {
               </div>
 
               {/* Form (Right Side - Card Style) */}
-              <div className="bg-card border border-border rounded-lg p-6 shadow-xl shadow-black/5">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-foreground font-semibold mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      placeholder="John Doe"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-foreground font-semibold mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-foreground font-semibold mb-2">
-                      Phone (Optional)
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      placeholder="+1 (234) 567-890"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-foreground font-semibold mb-2">
-                      Company (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      placeholder="Your Company"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-foreground font-semibold mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                      placeholder="Tell us how we can help..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md cursor-pointer"
+              <div className="bg-card border border-border rounded-lg p-6 shadow-xl shadow-black/5 flex flex-col justify-center min-h-[500px]">
+                {isSubmitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-12"
                   >
-                    Send Message
-                  </button>
-                </form>
+                    <CheckCircle2 className="mx-auto text-emerald-500 mb-6" size={64} />
+                    <h2 className="text-3xl font-bold text-foreground mb-4">Message Sent!</h2>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Thank you! We have received your inquiry and will get back to you shortly.
+                    </p>
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md cursor-pointer"
+                    >
+                      Send Another Message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <label htmlFor="name" className="block text-foreground font-semibold mb-2">
+                          Full Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                          placeholder="John Doe"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="block text-foreground font-semibold mb-2">
+                          Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="phone" className="block text-foreground font-semibold mb-2">
+                          Phone (Optional)
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                          placeholder="+91 93933 13414"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="company" className="block text-foreground font-semibold mb-2">
+                          Company (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                          placeholder="Your Company"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-foreground font-semibold mb-2">
+                          Message <span className="text-red-500">*</span>
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={6}
+                          className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                          placeholder="Tell us how we can help..."
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>

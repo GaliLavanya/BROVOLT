@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { 
   TrendingUp, Zap, Globe, Clock, Landmark, CheckCircle2, ShieldCheck, 
-  ArrowRight, Coins, Building, Fuel, Coffee, ShoppingBag, Home, Truck, 
+  ArrowRight, ArrowDown, Coins, Building, Fuel, Coffee, ShoppingBag, Home, Truck, 
   Navigation as NavigationIcon, Phone, FileText, Settings, UserCheck, Play,
   Award, Activity
 } from 'lucide-react'
@@ -30,9 +30,62 @@ export default function FranchisePage() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    setIsSubmitting(true)
+
+    const sheetDbUrl = process.env.NEXT_PUBLIC_SHEETDB_API_URL || 'https://sheetdb.io/api/v1/YOUR_SHEETDB_API_ID'
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'franchise',
+          data: {
+            form_type: 'franchise',
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: '',
+            location: formData.location,
+            investment: formData.investment,
+            propertyType: formData.propertyType,
+            message: formData.message,
+            submitted_at: new Date().toISOString()
+          }
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit franchise application to API')
+      }
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        location: '',
+        investment: '₹60 Lakhs (1 Station)',
+        propertyType: 'Own land',
+        message: ''
+      })
+      setIsSubmitted(true)
+
+      // Auto-reset success view back to form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+    } catch (error) {
+      console.error('Error submitting franchise Application:', error)
+      alert('Something went wrong. Please try again or contact us directly at hello@brevolt.in.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -58,7 +111,7 @@ export default function FranchisePage() {
                   <a href="#apply" className="px-8 py-3.5 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
                     Get Started <ArrowRight size={18} />
                   </a>
-                  <a href="#apply" className="px-8 py-3.5 border border-border text-foreground bg-card/45 hover:bg-card rounded-lg transition-colors font-semibold flex items-center justify-center">
+                  <a href="#apply" className="px-8 py-3.5 border border-primary text-foreground bg-card/45 hover:bg-card rounded-lg transition-colors font-semibold flex items-center justify-center">
                     Become a Partner
                   </a>
                 </div>
@@ -250,8 +303,6 @@ export default function FranchisePage() {
 
             {/* Stepper Timeline */}
             <div className="relative">
-              {/* Desktop connection line */}
-              <div className="hidden lg:block absolute top-1/2 left-4 right-4 h-0.5 bg-border -translate-y-1/2 z-0" />
               
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 relative z-10">
                 {[
@@ -272,6 +323,20 @@ export default function FranchisePage() {
                       <h4 className="font-bold text-foreground mb-2 text-base">{item.title}</h4>
                       <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
                     </div>
+
+                    {/* Arrow separators between steps */}
+                    {idx < 4 && (
+                      <>
+                        {/* Desktop Right Arrow */}
+                        <div className="hidden lg:flex absolute top-1/2 -right-6 -translate-y-1/2 z-20 w-4 h-4 items-center justify-center text-muted-foreground/60">
+                          <ArrowRight size={20} className="stroke-[1.5]" />
+                        </div>
+                        {/* Mobile Down Arrow */}
+                        <div className="flex lg:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 w-4 h-4 items-center justify-center text-muted-foreground/60">
+                          <ArrowDown size={20} className="stroke-[1.5]" />
+                        </div>
+                      </>
+                    )}
                   </div>
                 ))}
               </div>
@@ -311,7 +376,7 @@ export default function FranchisePage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Full Name</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Full Name <span className="text-red-500">*</span></label>
                       <input
                         type="text"
                         name="name"
@@ -323,7 +388,7 @@ export default function FranchisePage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Email Address</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Email Address <span className="text-red-500">*</span></label>
                       <input
                         type="email"
                         name="email"
@@ -338,7 +403,7 @@ export default function FranchisePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Phone Number</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Phone Number <span className="text-red-500">*</span></label>
                       <input
                         type="tel"
                         name="phone"
@@ -350,7 +415,7 @@ export default function FranchisePage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Preferred Location (City, State)</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Preferred Location (City, State) <span className="text-red-500">*</span></label>
                       <input
                         type="text"
                         name="location"
@@ -365,7 +430,7 @@ export default function FranchisePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Investment Capacity</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Investment Capacity <span className="text-red-500">*</span></label>
                       <select
                         name="investment"
                         value={formData.investment}
@@ -379,7 +444,7 @@ export default function FranchisePage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-foreground font-semibold mb-2 text-sm">Property Status</label>
+                      <label className="block text-foreground font-semibold mb-2 text-sm">Property Status <span className="text-red-500">*</span></label>
                       <select
                         name="propertyType"
                         value={formData.propertyType}
@@ -409,9 +474,10 @@ export default function FranchisePage() {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-primary/20 cursor-pointer flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-primary/20 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Apply Now & Connect with Experts <ArrowRight size={18} />
+                    {isSubmitting ? 'Submitting...' : 'Apply Now & Connect with Experts'} <ArrowRight size={18} />
                   </button>
                 </form>
               </div>

@@ -68,7 +68,7 @@ const solutionsData: Record<
     title: 'Commercial Charging',
     description: 'Turnkey charging infrastructure tailored for malls, hospitality venues, offices, and retail parking. Attracts premium customers and yields retail stay longevity.',
     icon: TrendingUp,
-    color: 'text-blue-600 bg-blue-600/10 border-blue-600/20',
+    color: 'text-primary bg-primary/10 border-primary/20',
     specs: [
       { label: 'Charger Config', val: 'Wallbox or dual Pedestal' },
       { label: 'Billing Tools', val: 'Multi-tariff payment gate' },
@@ -86,7 +86,7 @@ const solutionsData: Record<
     title: 'Home Charging Systems',
     description: 'Intelligent residential chargers designed for modern garages and driveway ports. Integrates with solar setups to charge your car using zero-emissions green power.',
     icon: Home,
-    color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20',
+    color: 'text-accent bg-accent/10 border-accent/20',
     specs: [
       { label: 'Charging Capacity', val: '7.4kW - 22kW AC' },
       { label: 'Cable Length', val: '5 meters standard (7m option)' },
@@ -104,7 +104,7 @@ const solutionsData: Record<
     title: 'Highway Fast Plazas',
     description: 'High-power charging corridors designed to support rapid inter-city travel. Built with liquid-cooled systems for continuous maximum power output during back-to-back charges.',
     icon: Zap,
-    color: 'text-rose-500 bg-rose-500/10 border-rose-500/20',
+    color: 'text-primary bg-primary/10 border-primary/20',
     specs: [
       { label: 'Max Output', val: '240kW - 350kW DC' },
       { label: 'Liquid Cooling', val: 'Integrated active chiller' },
@@ -122,7 +122,7 @@ const solutionsData: Record<
     title: 'Charging as a Service',
     description: 'Zero upfront capital subscription models for fleet operators. BREVOLT handles installation, site licensing, energy procurement, maintenance, and grid connections.',
     icon: Server,
-    color: 'text-violet-500 bg-violet-500/10 border-violet-500/20',
+    color: 'text-accent bg-accent/10 border-accent/20',
     specs: [
       { label: 'Capital Expense', val: '$0 upfront Capex' },
       { label: 'Opex Model', val: 'Monthly predictable billing' },
@@ -140,7 +140,7 @@ const solutionsData: Record<
     title: 'Smart Energy Management',
     description: 'AI-driven cloud software that optimizes power grids, reduces high energy demand fees, and handles peak-load shaving dynamically.',
     icon: Settings,
-    color: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+    color: 'text-primary bg-primary/10 border-primary/20',
     specs: [
       { label: 'Algorithm Class', val: 'AI prediction neural net' },
       { label: 'Grid Feed', val: 'V2G (Vehicle-to-grid) ready' },
@@ -158,7 +158,7 @@ const solutionsData: Record<
     title: 'Battery Analytics',
     description: 'Advanced cloud diagnostics monitoring the state-of-health (SoH) of electric vehicle batteries during fast charging cycles to ensure battery cell longevity.',
     icon: Activity,
-    color: 'text-teal-500 bg-teal-500/10 border-teal-500/20',
+    color: 'text-accent bg-accent/10 border-accent/20',
     specs: [
       { label: 'Analysis Class', val: 'Electrochemical model sync' },
       { label: 'Risk Protection', val: 'Thermal runaway prediction' },

@@ -240,7 +240,7 @@ export default function MobileAppPage() {
             </div>
             <div className="bg-primary/10 border border-primary/20 p-3 rounded-lg text-center mt-auto">
               <p className="text-[10px] text-primary font-bold">24/7 HELPLINE HOTLINE</p>
-              <p className="text-xs font-bold text-foreground mt-0.5">+1 (234) 567-890</p>
+              <p className="text-xs font-bold text-foreground mt-0.5">+91 93933 13414</p>
             </div>
           </div>
         )

@@ -264,9 +264,9 @@ export default function BusinessPage() {
         {/* CTA */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-primary to-blue-700 rounded-lg p-12 text-center">
+            <div className="bg-gradient-to-r from-primary to-emerald-900 rounded-lg p-12 text-center">
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Fleet?</h2>
-              <p className="text-xl text-blue-100 mb-8">Let\'s discuss how BREVOLT can optimize your operations.</p>
+              <p className="text-xl text-emerald-100 mb-8">Let's discuss how BREVOLT can optimize your operations.</p>
               <Link href="/contact?subject=Demo" className="inline-block px-8 py-3 bg-white text-primary rounded-lg hover:bg-gray-100 transition-colors font-semibold text-center">
                 Schedule a Demo
               </Link>

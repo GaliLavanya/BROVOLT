@@ -17,7 +17,7 @@ export default function HomePageContent() {
   return (
     <main className="bg-background">
       {/* Why BREVOLT Section */}
-      <section className="py-24 border-b border-border bg-gradient-to-b from-background to-card/20">
+      <section className="py-24 bg-[#F8FAFC] border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -34,31 +34,31 @@ export default function HomePageContent() {
                 icon: Zap,
                 title: 'Fast Charging',
                 desc: 'Ultra Fast DC Charging speeds designed to get you back on the road in minutes.',
-                color: 'text-accent bg-accent/10'
+                color: 'text-primary bg-primary/10'
               },
               {
                 icon: Globe,
                 title: 'Smart Network',
                 desc: 'AI-powered real-time monitoring and dynamic load distribution.',
-                color: 'text-primary bg-primary/10'
+                color: 'text-accent bg-accent/10'
               },
               {
                 icon: Award,
                 title: 'Reliable',
                 desc: '99.9% network uptime for reliable charging when you need it.',
-                color: 'text-emerald-500 bg-emerald-500/10'
+                color: 'text-primary bg-primary/10'
               },
               {
                 icon: Shield,
                 title: 'Safe',
                 desc: 'Compliant with international safety, ground fault protection, and surge protection standards.',
-                color: 'text-rose-500 bg-rose-500/10'
+                color: 'text-accent bg-accent/10'
               },
               {
                 icon: Leaf,
                 title: 'Sustainable',
                 desc: '100% renewable energy integration powering clean mobility.',
-                color: 'text-teal-500 bg-teal-500/10'
+                color: 'text-primary bg-primary/10'
               }
             ].map((item, idx) => (
               <motion.div
@@ -83,7 +83,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Our Solutions Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-[#EFF6FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -163,7 +163,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Our Chargers Specifications Section */}
-      <section className="py-24 bg-card border-t border-b border-border">
+      <section className="py-24 bg-[#FFFFFF] border-t border-b border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">Our Chargers</h2>
@@ -227,7 +227,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Charging Process Flow */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">How it Works</h2>
@@ -272,7 +272,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Why Businesses Choose BREVOLT Section */}
-      <section className="py-24 bg-card border-t border-b border-border">
+      <section className="py-24 bg-[#EFF6FF] border-t border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">Why Businesses Choose BREVOLT</h2>
@@ -324,7 +324,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Franchise Opportunity Section */}
-      <section className="py-24 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border">
+      <section className="py-24 bg-gradient-to-br from-[#FFFFFF] to-[#EFF6FF] border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -364,36 +364,71 @@ export default function HomePageContent() {
       </section>
 
       {/* Sustainability Section */}
-      <section className="py-24 bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-12">
-            <span className="text-emerald-500 font-bold uppercase tracking-wider text-sm">Sustainability</span>
-            <h2 className="text-4xl font-bold text-foreground mt-2 mb-4">Our Green Commitment</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">We are focused on minimizing the carbon footprint of transportation through smart engineering.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
-            {[
-              { title: 'Renewable Energy', desc: 'Solar and wind grid integration.' },
-              { title: 'Carbon Reduction', desc: 'Direct reduction of transit emissions.' },
-              { title: 'Smart Distribution', desc: 'Grid balancing to protect load.' },
-              { title: 'Green Mobility', desc: 'Accelerating mass EV adoption.' },
-              { title: 'Future-ready Info', desc: 'Grid infrastructure ready for growth.' }
-            ].map((item, i) => (
-              <div key={i} className="bg-card border border-border p-6 rounded-lg">
-                <Leaf className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground text-sm mb-1">{item.title}</h4>
-                <p className="text-xs text-muted-foreground">{item.desc}</p>
+      <section className="py-24 bg-card/10 border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <span className="text-primary font-bold uppercase tracking-wider text-sm">Sustainability</span>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-4">Our Green Commitment</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We are focused on minimizing the carbon footprint of transportation through smart engineering. Our network integrates clean power sources directly into the charging cycle, making sustainable driving effortless.
+                </p>
               </div>
-            ))}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: 'Renewable Energy', desc: 'Solar and wind grid integration.' },
+                  { title: 'Carbon Reduction', desc: 'Direct reduction of transit emissions.' },
+                  { title: 'Smart Distribution', desc: 'Grid balancing to protect load.' },
+                  { title: 'Green Mobility', desc: 'Accelerating mass EV adoption.' },
+                  { title: 'Future-Ready Grid', desc: 'Grid infrastructure ready for growth.' },
+                  { title: 'Eco-Charging', desc: 'Smart scheduling for off-peak hours.' }
+                ].map((item, i) => (
+                  <div key={i} className="bg-card border border-border p-4.5 rounded-xl hover:border-primary/30 transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                      <Leaf className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground text-sm mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2">
+                <Link href="/sustainability" className="text-primary hover:text-primary/80 font-bold inline-flex items-center gap-1.5 hover:underline">
+                  Carbon Offset Calculator <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual Column */}
+            <div className="lg:col-span-6 relative h-[450px] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
+              <Image
+                src="/images/sustainability-visual.png"
+                alt="BREVOLT Green Charging Ecosystem"
+                fill
+                className="object-cover"
+              />
+              {/* Green/Glassmorphism overlay card */}
+              <div className="absolute bottom-6 left-6 right-6 bg-background/85 backdrop-blur-md border border-border/80 rounded-xl p-5 shadow-lg">
+                <h4 className="font-bold text-foreground text-base mb-1">100% Clean Power</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Integrating dynamic solar power sync and load balancing to eliminate fossil-fuel dependencies on every charge.
+                </p>
+              </div>
+            </div>
+
           </div>
-          <Link href="/sustainability" className="text-emerald-500 hover:text-emerald-400 font-semibold inline-flex items-center gap-1.5">
-            Carbon Offset Calculator <ArrowRight size={16} />
-          </Link>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-card">
+      <section className="py-24 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">What Our Users Say</h2>
@@ -437,7 +472,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Latest News */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-[#EFF6FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>

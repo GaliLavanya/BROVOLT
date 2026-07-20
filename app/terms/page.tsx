@@ -85,7 +85,8 @@ export default function TermsOfServicePage() {
               </p>
               <p className="mt-4 font-semibold text-foreground">
                 Reach All Private Limited<br />
-                Email: hello@brevolt.in<br />
+                Email: hello@brevolt.in / info@brevolt.in<br />
+                Phone: +91 93933 13414<br />
                 Address: 3rd Floor, Newmark House, Unit No: 303 B, Plot No: 56, Patrika Nagar, Madhapur, Serilingampalle (M), Hyderabad, Telangana 500081
               </p>
             </section>

@@ -102,11 +102,50 @@ export default function BlogContent() {
   const [subscribed, setSubscribed] = useState(false)
   const [email, setEmail] = useState('')
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubscribed(true)
-    setEmail('')
-    alert('Thank you for subscribing to our newsletter!')
+    setIsSubmitting(true)
+
+    const sheetDbUrl = process.env.NEXT_PUBLIC_SHEETDB_API_URL || 'https://sheetdb.io/api/v1/YOUR_SHEETDB_API_ID'
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'newsletter',
+          data: {
+            form_type: 'newsletter',
+            name: '',
+            email: email,
+            phone: '',
+            company: '',
+            location: '',
+            investment: '',
+            propertyType: '',
+            message: '',
+            submitted_at: new Date().toISOString()
+          }
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit subscription to API')
+      }
+
+      setSubscribed(true)
+      setEmail('')
+      alert('Thank you for subscribing to our newsletter!')
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -247,9 +286,10 @@ export default function BlogContent() {
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold cursor-pointer"
+                disabled={isSubmitting}
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </button>
             </form>
           )}

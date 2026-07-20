@@ -105,29 +105,24 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-foreground mb-4 text-center">Leadership Team</h2>
               <p className="text-center text-muted-foreground max-w-2xl mx-auto">Meet the visionary leaders driving the EV charging revolution</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
                 {
-                  name: 'Sarah Johnson',
-                  role: 'CEO & Co-Founder',
-                  bio: '15+ years in renewable energy and electric mobility',
+                  name: 'Bhagya Rao Battula',
+                  role: 'Founder & CEO',
+                  bio: 'Battula Bhagya Rao is the Founder & CEO of Brevolt, with over 10 years of experience in technology leadership, product development, project management, and CXO roles. His expertise spans supply chain, rural e-commerce, digital platforms, and enterprise solutions, driving innovation and scalable technology for sustainable growth.',
                 },
                 {
-                  name: 'Michael Chen',
-                  role: 'CTO & Co-Founder',
-                  bio: 'Former lead engineer at major EV manufacturer',
-                },
-                {
-                  name: 'Emma Rodriguez',
-                  role: 'Chief Sustainability Officer',
-                  bio: 'Environmental scientist with global impact initiatives',
+                  name: 'Rathna Babu Battula',
+                  role: 'Co-Founder & COO',
+                  bio: 'Rathna Babu Battula is the Co Founder & COO of Brevolt and a serial entrepreneur with 10+ years of experience across waste management, technology, supply chain, logistics, retail, rural commerce, and EdTech. He is committed to building sustainable, technology-driven solutions that transform waste into value and accelerate the circular economy.',
                 },
               ].map((member, index) => (
                 <div key={index} className="bg-card border-2 border-primary/40 rounded-lg p-8 text-center hover:border-primary transition-colors hover:shadow-lg hover:shadow-primary/20">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-4 border-4 border-primary/20" />
                   <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
                   <p className="text-accent text-sm font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
                 </div>
               ))}
             </div>

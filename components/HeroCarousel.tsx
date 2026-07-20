@@ -73,7 +73,7 @@ export default function HeroCarousel() {
               priority={index === 0}
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -91,14 +91,14 @@ export default function HeroCarousel() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-balance">
             {slides[current].title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 text-balance">
+          <p className="text-xl md:text-2xl text-gray-100 mb-8 text-balance">
             {slides[current].subtitle}
           </p>
           <div className="flex items-center justify-center space-x-4">
-            <Link href="/charging-network" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md">
+            <Link href="/charging-network" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg transition-all font-semibold shadow-md">
               Find Charger
             </Link>
-            <Link href="/franchise" className="px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white/15 transition-colors font-semibold shadow-md">
+            <Link href="/franchise" className="px-8 py-3 border-2 border-primary text-white hover:bg-primary/10 rounded-lg transition-all font-semibold shadow-md">
               Become a Partner
             </Link>
           </div>
@@ -131,7 +131,7 @@ export default function HeroCarousel() {
               setAutoPlay(false)
             }}
             className={`h-2 rounded-full transition-all ${
-              index === current ? 'bg-accent w-8' : 'bg-white/40 w-2 hover:bg-white/60'
+              index === current ? 'bg-primary w-8' : 'bg-white/40 w-2 hover:bg-white/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
